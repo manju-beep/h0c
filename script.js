@@ -14,7 +14,7 @@ function spawnHeart() {
   p.textContent = particleEmojis[Math.floor(Math.random()*particleEmojis.length)];
   
   p.style.left = Math.random() * 90 + '%';
-  p.style.fontSize = 12 + Math.random() * 18 + 'px';
+  p.style.fontSize = 7 + Math.random() * 9 + 'px';
   p.style.opacity = 0.7;
   p.style.animationDuration = (4 + Math.random()*3) + 's';
   
@@ -66,3 +66,4 @@ function answer(){
   audio.volume=0.3;
   audio.play();
 }
+
