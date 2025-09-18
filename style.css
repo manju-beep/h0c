@@ -1,7 +1,6 @@
 body {
   margin: 0;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
   font-family: 'Baloo 2', cursive;
   background: linear-gradient(135deg,#ffe6f2,#fff0f7,#ffe6f9);
   background-size: 400% 400%;
@@ -10,15 +9,20 @@ body {
   align-items: center;
   justify-content: center;
 }
-
 @keyframes bgShift {
   0% { background-position: 0% 50% }
   50% { background-position: 100% 50% }
   100% { background-position: 0% 50% }
 }
-
-.deck { position: relative; width: 340px; height: 460px; overflow: hidden; }
-
+.deck {
+  position: relative;
+  width: 340px;
+  height: 460px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .card {
   position: absolute;
   width: 100%;
@@ -32,15 +36,14 @@ body {
   justify-content: center;
   padding: 20px;
   text-align: center;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
-
 .card.active { display: flex; }
-
 h1 { font-family: 'Pacifico', cursive; font-size: 30px; color: #ff4f9c; margin: 0 0 12px; }
 p { font-size: 18px; margin: 6px 0; }
-
 .choice-btns { display: flex; gap: 14px; margin-top: 18px; justify-content: center; }
-
 .yes {
   background: linear-gradient(90deg,#ff94c2,#ffb3da);
   border: none;
@@ -53,7 +56,6 @@ p { font-size: 18px; margin: 6px 0; }
   transition: transform 0.3s ease;
 }
 .yes:hover { transform: scale(1.15) rotate(-2deg); }
-
 .next-btn {
   margin-top: 16px;
   padding: 12px 24px;
@@ -67,12 +69,10 @@ p { font-size: 18px; margin: 6px 0; }
   animation: pulse 1.2s infinite alternate;
 }
 .next-btn:hover { transform: scale(1.1); }
-
 @keyframes pulse {
   from { transform: scale(1); }
   to { transform: scale(1.15); }
 }
-
 /* Flowing hearts */
 .particle {
   position: absolute;
@@ -83,17 +83,14 @@ p { font-size: 18px; margin: 6px 0; }
   animation-timing-function: linear;
   animation-fill-mode: forwards;
 }
-
 @keyframes floatUp {
   0% { transform: translateY(0) rotate(0deg); opacity: 0.7; }
   100% { transform: translateY(-500px) rotate(360deg); opacity: 0; }
 }
-
 /* Confetti */
 .confetti { position: fixed; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; overflow: hidden; z-index:1; }
 .piece { position: absolute; top:-10px; font-size: 22px; animation: fall linear forwards; }
 @keyframes fall { to { transform: translateY(110vh) rotate(360deg); opacity: 0; } }
-
 /* Giant YES */
 .giant-yes {
   position: fixed;
@@ -115,10 +112,9 @@ p { font-size: 18px; margin: 6px 0; }
   80% { transform: translate(-50%,-50%) scale(3.5) rotate(10deg);}
   100% { transform: translate(-50%,-50%) scale(0);}
 }
-
 /* End Screen */
 #endScreen {
-  position: fixed; top:0; left:0; width:100%; height:100%;
+  position: fixed; top:0; left:0; width:100vw; height:100vh;
   background: linear-gradient(135deg,#ffb3da,#ffe6f2,#fff0f7);
   display:flex; flex-direction: column; align-items: center; justify-content: center;
   opacity: 0; pointer-events:none;
