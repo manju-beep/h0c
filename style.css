@@ -1,0 +1,129 @@
+body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Baloo 2', cursive;
+  background: linear-gradient(135deg,#ffe6f2,#fff0f7,#ffe6f9);
+  background-size: 400% 400%;
+  animation: bgShift 20s ease infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes bgShift {
+  0% { background-position: 0% 50% }
+  50% { background-position: 100% 50% }
+  100% { background-position: 0% 50% }
+}
+
+.deck { position: relative; width: 340px; height: 460px; overflow: hidden; }
+
+.card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 12px 40px rgba(255,107,154,0.25);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+}
+
+.card.active { display: flex; }
+
+h1 { font-family: 'Pacifico', cursive; font-size: 30px; color: #ff4f9c; margin: 0 0 12px; }
+p { font-size: 18px; margin: 6px 0; }
+
+.choice-btns { display: flex; gap: 14px; margin-top: 18px; justify-content: center; }
+
+.yes {
+  background: linear-gradient(90deg,#ff94c2,#ffb3da);
+  border: none;
+  color: white;
+  padding: 14px 24px;
+  border-radius: 20px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.yes:hover { transform: scale(1.15) rotate(-2deg); }
+
+.next-btn {
+  margin-top: 16px;
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 18px;
+  background: #ffb3da;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  animation: pulse 1.2s infinite alternate;
+}
+.next-btn:hover { transform: scale(1.1); }
+
+@keyframes pulse {
+  from { transform: scale(1); }
+  to { transform: scale(1.15); }
+}
+
+/* Flowing hearts */
+.particle {
+  position: absolute;
+  bottom: 0;
+  pointer-events: none;
+  user-select: none;
+  animation-name: floatUp;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0.7; }
+  100% { transform: translateY(-500px) rotate(360deg); opacity: 0; }
+}
+
+/* Confetti */
+.confetti { position: fixed; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; overflow: hidden; z-index:1; }
+.piece { position: absolute; top:-10px; font-size: 22px; animation: fall linear forwards; }
+@keyframes fall { to { transform: translateY(110vh) rotate(360deg); opacity: 0; } }
+
+/* Giant YES */
+.giant-yes {
+  position: fixed;
+  left:50%; top:50%;
+  transform: translate(-50%, -50%) scale(1);
+  background: linear-gradient(90deg,#ff4f9c,#ff94c2);
+  color: white;
+  padding: 25px 50px;
+  border-radius: 50px;
+  font-size: 36px;
+  font-weight: 700;
+  box-shadow:0 0 60px rgba(255,107,154,0.7);
+  animation: growYes 2s forwards;
+  z-index:10;
+}
+@keyframes growYes {
+  0% { transform: translate(-50%,-50%) scale(1) rotate(0deg);}
+  50% { transform: translate(-50%,-50%) scale(3) rotate(-10deg);}
+  80% { transform: translate(-50%,-50%) scale(3.5) rotate(10deg);}
+  100% { transform: translate(-50%,-50%) scale(0);}
+}
+
+/* End Screen */
+#endScreen {
+  position: fixed; top:0; left:0; width:100%; height:100%;
+  background: linear-gradient(135deg,#ffb3da,#ffe6f2,#fff0f7);
+  display:flex; flex-direction: column; align-items: center; justify-content: center;
+  opacity: 0; pointer-events:none;
+  z-index:20;
+  transition: opacity 1s ease;
+}
+#endScreen h1 { font-family: Pacifico,cursive; font-size: 50px; color:#ff2f82; margin-bottom: 20px; text-align:center; }
+#endScreen p { font-size: 24px; color:#444; }

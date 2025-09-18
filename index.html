@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HOCO Interactive</title>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Baloo+2:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="deck" id="deck">
+  <div class="card">
+    <h1>hey 💌</h1>
+    <p>i made these lil cards for you</p>
+    <button class="next-btn" onclick="nextCard()">Next ➡️</button>
+  </div>
+  <div class="card">
+    <h1>btw...</h1>
+    <p>you’re honestly so cute and beautiful 💖</p>
+    <p><em>you r beautiful today and i dont even need to see it</em></p>
+    <button class="next-btn" onclick="nextCard()">Next ➡️</button>
+  </div>
+  <div class="card">
+    <h1>small note 📝</h1>
+    <p>ik u cant come</p>
+    <button class="next-btn" onclick="nextCard()">Next ➡️</button>
+  </div>
+  <div class="card">
+    <h1>also...</h1>
+    <p>don’t be shocked 😅</p>
+    <button class="next-btn" onclick="nextCard()">Next ➡️</button>
+  </div>
+  <div class="card">
+    <h1>sooo...</h1>
+    <p>would you go to <strong>homecoming</strong> with me? ✨</p>
+    <div class="choice-btns">
+      <button class="yes" onclick="answer()">Yes 💖</button>
+      <button class="yes" onclick="answer()">Yes 💕</button>
+    </div>
+  </div>
+</div>
+
+<div class="confetti" id="confetti"></div>
+<div id="endScreen">
+  <h1>SEE YOU AT HOCO 💖✨</h1>
+  <p>(no backsies 😏)</p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
